@@ -50,3 +50,7 @@ npm run dev:demo
 ## 商机行动优先级
 
 新增 `POST /api/salesagent/insights/opportunity-priority`，综合金额、阶段、互动、停滞、决策期、内部支持者和竞品，输出 `ACT_NOW`、`NURTURE` 或 `MONITOR`。
+
+## 企业级销售 Agent 对外动作授权
+
+新增 `POST /api/enterprise/salesagent/outbound-action-authorization`，覆盖客户偏好、数据、商业陈述、折扣承诺、人工批准、频率和撤回，返回 `EXECUTE / REVIEW / BLOCKED`。详见 [动作授权说明](docs/ENTERPRISE_OUTBOUND_ACTION.md)。
