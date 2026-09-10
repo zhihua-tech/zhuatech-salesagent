@@ -54,3 +54,7 @@ npm run dev:demo
 ## 企业级销售 Agent 对外动作授权
 
 新增 `POST /api/enterprise/salesagent/outbound-action-authorization`，覆盖客户偏好、数据、商业陈述、折扣承诺、人工批准、频率和撤回，返回 `EXECUTE / REVIEW / BLOCKED`。详见 [动作授权说明](docs/ENTERPRISE_OUTBOUND_ACTION.md)。
+
+## 商机预测与 Commit 治理
+
+`POST /api/enterprise/salesagent/opportunity-forecast` 使用 CRM 阶段、最近客户活动、预计成交日、决策人、预算、下一步和阶段证据计算调整后概率与加权金额，对过期 Commit、证据缺口和经理覆盖实施复核或阻断。详见[商机预测说明](docs/ENTERPRISE_OPPORTUNITY_FORECAST.md)。

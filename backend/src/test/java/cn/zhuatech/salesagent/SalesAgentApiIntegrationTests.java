@@ -16,5 +16,8 @@ import org.junit.jupiter.api.*; import org.springframework.beans.factory.annotat
         .andExpect(jsonPath("$.data.pauseAutomation").value(true))
         .andExpect(jsonPath("$.data.touchpoints.length()").value(2))
         .andExpect(jsonPath("$.data.touchpoints[0].channel").value("INTERNAL"));}
+    @Test void operatorCanGovernOpportunityForecast()throws Exception{mvc.perform(post("/api/enterprise/salesagent/opportunity-forecast").header("Authorization","Bearer "+operatorToken).contentType(MediaType.APPLICATION_JSON).content("{\"opportunityId\":\"OPP-100\",\"dealAmount\":1000000,\"stage\":\"COMMIT\",\"stageProbability\":80,\"lastCustomerActivityDate\":\"2026-09-06\",\"expectedCloseDate\":\"2026-10-11\",\"asOfDate\":\"2026-09-11\",\"decisionMakerConfirmed\":true,\"budgetConfirmed\":true,\"nextStepRecorded\":true,\"crmEvidenceComplete\":true,\"managerOverride\":false,\"overrideProbability\":0,\"managerApproved\":false}"))
+        .andExpect(status().isOk()).andExpect(jsonPath("$.data.decision").value("ACCEPT_FORECAST"))
+        .andExpect(jsonPath("$.data.weightedAmount").value(800000.0));}
     @Test void anonymousRequestIsDenied()throws Exception{mvc.perform(get("/api/admin/dashboard")).andExpect(status().isForbidden());}
 }
