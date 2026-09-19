@@ -15,9 +15,16 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 将 CRM 阶段、客户证据、停滞和经理覆盖转化为可审计的销售预测。 */
+/**
+ * 将 CRM 阶段、客户证据、停滞和经理覆盖转化为可审计的销售预测。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class OpportunityForecastGovernanceService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public ForecastResult evaluate(ForecastRequest request) {
         List<String> blockers = new ArrayList<>();
         List<String> reasons = new ArrayList<>();
@@ -89,6 +96,9 @@ public class OpportunityForecastGovernanceService {
                 evidenceCoverage, idleDays, overdueCloseDays, weightedAmount, blockers, reasons, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private ForecastResult result(Decision decision, String category, int probability, int evidenceCoverage,
                                   long idleDays, long overdueCloseDays, BigDecimal weightedAmount,
                                   List<String> blockers, List<String> reasons, List<String> actions) {
@@ -97,14 +107,23 @@ public class OpportunityForecastGovernanceService {
                 List.copyOf(actions));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private String category(int probability) {
         return probability >= 75 ? "COMMIT" : probability >= 50 ? "BEST_CASE" : "PIPELINE";
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private boolean blank(String value) {
         return value == null || value.isBlank();
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ForecastRequest(
             @NotBlank String opportunityId,
             @NotNull @DecimalMin("0.01") BigDecimal dealAmount,
@@ -123,11 +142,20 @@ public class OpportunityForecastGovernanceService {
             boolean managerApproved
     ) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ForecastResult(Decision decision, String forecastCategory, int adjustedProbability,
                                  int evidenceCoveragePercent, long idleDays, long overdueCloseDays,
                                  BigDecimal weightedAmount, List<String> blockers,
                                  List<String> reasons, List<String> actions) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Stage { PIPELINE, QUALIFICATION, PROPOSAL, NEGOTIATION, COMMIT }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Decision { ACCEPT_FORECAST, REVIEW_FORECAST, REMOVE_FROM_COMMIT, BLOCKED }
 }

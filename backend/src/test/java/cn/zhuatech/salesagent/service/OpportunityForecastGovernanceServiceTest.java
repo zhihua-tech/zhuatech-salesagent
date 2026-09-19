@@ -8,10 +8,16 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class OpportunityForecastGovernanceServiceTest {
     private final OpportunityForecastGovernanceService service = new OpportunityForecastGovernanceService();
     private final LocalDate today = LocalDate.of(2026, 9, 11);
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void acceptsEvidenceBackedCommitForecast() {
         var result = service.evaluate(request(OpportunityForecastGovernanceService.Stage.COMMIT,
@@ -20,6 +26,9 @@ class OpportunityForecastGovernanceServiceTest {
         assertThat(result.weightedAmount()).isEqualByComparingTo("800000.00");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void reviewsForecastWithIncompleteBuyingEvidence() {
         var result = service.evaluate(request(OpportunityForecastGovernanceService.Stage.PROPOSAL,
@@ -29,6 +38,9 @@ class OpportunityForecastGovernanceServiceTest {
         assertThat(result.evidenceCoveragePercent()).isEqualTo(50);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void removesStaleOverdueOpportunityFromCommit() {
         var result = service.evaluate(request(OpportunityForecastGovernanceService.Stage.COMMIT,
@@ -37,6 +49,9 @@ class OpportunityForecastGovernanceServiceTest {
         assertThat(result.forecastCategory()).isEqualTo("OMIT");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void blocksUnapprovedManagerOverride() {
         var result = service.evaluate(request(OpportunityForecastGovernanceService.Stage.NEGOTIATION,
@@ -45,6 +60,9 @@ class OpportunityForecastGovernanceServiceTest {
         assertThat(result.blockers()).hasSize(2);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private OpportunityForecastGovernanceService.ForecastRequest request(
             OpportunityForecastGovernanceService.Stage stage, int probability, int idleDays,
             int daysToClose, boolean decisionMaker, boolean budget, boolean nextStep, boolean evidence,

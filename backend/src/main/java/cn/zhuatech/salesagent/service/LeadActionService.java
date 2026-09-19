@@ -11,9 +11,16 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 根据商机价值、赢率和停滞信号给出下一步销售动作。 */
+/**
+ * 根据商机价值、赢率和停滞信号给出下一步销售动作。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class LeadActionService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public ActionResult plan(ActionRequest request) {
         int score = Math.min(100,
             (int) Math.round(request.winProbability() * 50)
@@ -30,6 +37,9 @@ public class LeadActionService {
         return new ActionResult(priority, Math.max(0, score), List.copyOf(actions), request.inactiveDays() >= 14, request.inactiveDays() >= 14 ? "建议销售经理介入" : "由客户经理跟进");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ActionRequest(
         @NotBlank(message = "请输入商机名称") String opportunity,
         @Positive double dealValue,
@@ -39,5 +49,8 @@ public class LeadActionService {
         boolean competitorDetected
     ) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ActionResult(String priority, int score, List<String> nextBestActions, boolean managerEscalation, String ownerGuidance) {}
 }

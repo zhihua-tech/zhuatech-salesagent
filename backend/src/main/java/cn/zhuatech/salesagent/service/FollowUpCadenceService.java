@@ -9,9 +9,16 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 根据商机阶段、客户响应和下一会议安排生成克制的多触点跟进节奏。 */
+/**
+ * 根据商机阶段、客户响应和下一会议安排生成克制的多触点跟进节奏。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class FollowUpCadenceService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public CadenceResult plan(CadenceRequest request) {
         int riskScore = Math.min(100,
             Math.min(40, request.inactiveDays() * 3)
@@ -37,6 +44,9 @@ public class FollowUpCadenceService {
             request.stakeholderCount() < 2 ? "优先拓展第二联系人，降低单线程商机风险" : "保持多角色共识并记录客户反馈");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record CadenceRequest(
         @NotBlank(message = "请输入商机名称") String opportunity,
         @NotBlank(message = "请输入销售阶段") String stage,
@@ -47,6 +57,12 @@ public class FollowUpCadenceService {
         @NotBlank(message = "请输入客户首选渠道") String preferredChannel
     ) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Touchpoint(int dayOffset, String channel, String purpose) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record CadenceResult(String urgency, int riskScore, boolean pauseAutomation, List<Touchpoint> touchpoints, String guidance) {}
 }
