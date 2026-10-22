@@ -1,5 +1,9 @@
 [简体中文](README.md) | **English**
 
+## Functional update: Weighted sales pipeline
+
+Aggregates user-maintained opportunity amounts and probabilities by stage and flags close dates that precede the review date. Weighted values are estimates, not commitments. Available to signed-in users with editable inputs, explicit validation and JSON export. See [API, examples and limitations](docs/AI_BUSINESS_UPGRADE_20261023.md). No external model calls or automatic business changes. Existing license and contact details are retained.
+
 # ZhuaTech SalesAgent
 
 > A source-available enterprise project by [ZhuaTech](https://www.zhuatech.cn/) for customer, sales, marketing, channel, and service operations.
