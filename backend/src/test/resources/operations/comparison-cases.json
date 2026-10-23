@@ -1,0 +1,75 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "REVIEW",
+      "netBookings": "#92000",
+      "closingBacklog": "#62000"
+    },
+    "error": false,
+    "baseline": {
+      "decision": "REVIEW",
+      "netBookings": "#92000",
+      "closingBacklog": "#62000"
+    }
+  },
+  {
+    "patch": {
+      "target": "92000"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false,
+    "baseline": {
+      "decision": "REVIEW",
+      "netBookings": "#92000",
+      "closingBacklog": "#62000"
+    }
+  },
+  {
+    "patch": {
+      "target": "0"
+    },
+    "expected": {
+      "attainmentPct": "N/A",
+      "decision": "PASS"
+    },
+    "error": false,
+    "baseline": {
+      "decision": "REVIEW",
+      "netBookings": "#92000",
+      "closingBacklog": "#62000"
+    }
+  },
+  {
+    "patch": {
+      "delivered": "112000"
+    },
+    "expected": {
+      "closingBacklog": "#0"
+    },
+    "error": false,
+    "baseline": {
+      "decision": "REVIEW",
+      "netBookings": "#92000",
+      "closingBacklog": "#62000"
+    }
+  },
+  {
+    "patch": {
+      "cancelled": "0",
+      "returned": "0"
+    },
+    "expected": {
+      "netBookings": "#100000",
+      "decision": "PASS"
+    },
+    "error": false,
+    "baseline": {
+      "decision": "REVIEW",
+      "netBookings": "#92000",
+      "closingBacklog": "#62000"
+    }
+  }
+]
