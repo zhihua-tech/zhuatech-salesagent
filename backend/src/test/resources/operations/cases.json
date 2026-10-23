@@ -1,0 +1,64 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "REVIEW",
+      "netBookings": "#92000",
+      "closingBacklog": "#62000"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "target": "92000"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "target": "0"
+    },
+    "expected": {
+      "attainmentPct": "N/A",
+      "decision": "PASS"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "cancelled": "98000"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "delivered": "112000"
+    },
+    "expected": {
+      "closingBacklog": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "delivered": "112000.01"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "cancelled": "0",
+      "returned": "0"
+    },
+    "expected": {
+      "netBookings": "#100000",
+      "decision": "PASS"
+    },
+    "error": false
+  }
+]

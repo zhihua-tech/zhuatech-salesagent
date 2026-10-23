@@ -1,0 +1,97 @@
+{
+  "slug": "salesagent",
+  "title": "销售净签约与目标缺口",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "booked",
+      "label": "本期新签金额",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "cancelled",
+      "label": "其中取消金额",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "returned",
+      "label": "其中退单金额",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "target",
+      "label": "本期签约目标",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "openingBacklog",
+      "label": "期初未交签约额",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "delivered",
+      "label": "本期已交金额",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    }
+  ],
+  "columns": [
+    {
+      "key": "netBookings",
+      "label": "净签约元"
+    },
+    {
+      "key": "targetGap",
+      "label": "目标缺口元"
+    },
+    {
+      "key": "closingBacklog",
+      "label": "期末未交额元"
+    },
+    {
+      "key": "attainmentPct",
+      "label": "净达成%"
+    }
+  ],
+  "description": "从本期签约中扣除互斥的取消/退单，结合存量已签未交和本期目标核对净达成；不把加权商机当已签收入。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "booked": "100000",
+        "cancelled": "5000",
+        "returned": "3000",
+        "target": "100000",
+        "openingBacklog": "20000",
+        "delivered": "50000"
+      }
+    ]
+  }
+}
